@@ -87,52 +87,53 @@ int main(int argc, char** argv) {
     
     //http://aragorn.pb.bialystok.pl/~wkwedlo/PC3.pdf
     
-    
-//    while (ping_pong_count < PING_PONG_LIMIT)
-//    {
-//        if (world_rank == ping_pong_count % 2)
-//        {
-//            MPI_Request rq[2];
-//            MPI_Status stattab[2];
-//            
-//            t1 = MPI_Wtime();
-//            
-//            ping_pong_count++;
-//            
-//            tab[0]=MPI_Wtime();
-//            tab[1]=ping_pong_count;
-//            
-//            MPI_Isend(&tab, 2, MPI_DOUBLE, partner_rank, 0, MPI_COMM_WORLD,&rq[0]);
-//            MPI_Irecv(&tab, 2, MPI_DOUBLE, partner_rank, 0,MPI_COMM_WORLD,&rq[1]);
-//            MPI_Waitall(2,rq,stattab);
-//            printf("\nPING count: %d\n", ping_pong_count);
-//        }
-//        else
-//        {
-//            MPI_Request rq[2];
-//            MPI_Status stattab[2];
-//            
-//            
-//            MPI_Isend(&tab, 2, MPI_DOUBLE, partner_rank, 0, MPI_COMM_WORLD,&rq[0]);
-//            MPI_Irecv(&tab, 2, MPI_DOUBLE, partner_rank, 0,MPI_COMM_WORLD,&rq[1]);
-//        
-//            MPI_Waitall(2,rq,stattab);
-//            
-//            ping_pong_count = tab[1];
-//            
-//            t2 = MPI_Wtime();
-//            printf("\nPONG count: %d %f\n", ping_pong_count, t2-tab[0]);
-//            
-//            char str[] = "%d";
-//            char str2[PING_PONG_LIMIT];
-//            sprintf(str2,str,ping_pong_count);
-//            
-//            CSV wyniki;
-//            wyniki.name = str2;
-//            wyniki.value = t2-tab[0];
-//            
-//            write_to_file(1,&wyniki,"wyniki_sync.csv");
-//        }
-//    }
+/*
+    while (ping_pong_count < PING_PONG_LIMIT)
+    {
+        if (world_rank == ping_pong_count % 2)
+        {
+            MPI_Request rq[2];
+            MPI_Status stattab[2];
+            
+            t1 = MPI_Wtime();
+            
+            ping_pong_count++;
+            
+            tab[0]=MPI_Wtime();
+            tab[1]=ping_pong_count;
+            
+            MPI_Isend(&tab, 2, MPI_DOUBLE, partner_rank, 0, MPI_COMM_WORLD,&rq[0]);
+            MPI_Irecv(&tab, 2, MPI_DOUBLE, partner_rank, 0,MPI_COMM_WORLD,&rq[1]);
+            MPI_Waitall(2,rq,stattab);
+            printf("\nPING count: %d\n", ping_pong_count);
+        }
+        else
+        {
+            MPI_Request rq[2];
+            MPI_Status stattab[2];
+            
+            
+            MPI_Isend(&tab, 2, MPI_DOUBLE, partner_rank, 0, MPI_COMM_WORLD,&rq[0]);
+            MPI_Irecv(&tab, 2, MPI_DOUBLE, partner_rank, 0,MPI_COMM_WORLD,&rq[1]);
+        
+            MPI_Waitall(2,rq,stattab);
+            
+            ping_pong_count = tab[1];
+            
+            t2 = MPI_Wtime();
+            printf("\nPONG count: %d %f\n", ping_pong_count, t2-tab[0]);
+            
+            char str[] = "%d";
+            char str2[PING_PONG_LIMIT];
+            sprintf(str2,str,ping_pong_count);
+            
+            CSV wyniki;
+            wyniki.name = str2;
+            wyniki.value = t2-tab[0];
+            
+            write_to_file(1,&wyniki,"wyniki_sync.csv");
+        }
+    }
+ */
     MPI_Finalize();
 }
